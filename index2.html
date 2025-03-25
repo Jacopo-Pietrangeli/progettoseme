@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ristorante Delizia</title>
+  <style>
+    body {
+      font-family: 'Georgia', serif;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ff7e5f, #feb47b);
+      color: #333;
+      text-align: center;
+    }
+    h1 {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+      color: #ff1a1a;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    p {
+      font-size: 1.4rem;
+      margin-bottom: 30px;
+      line-height: 1.8;
+      max-width: 600px;
+      color: #444;
+    }
+    #qr-code {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+    }
+    .menu-button {
+      background-color: #ff1a1a;
+      color: white;
+      border: none;
+      padding: 18px 36px;
+      font-size: 1.4rem;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      margin-top: 20px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    }
+    .menu-button:hover {
+      background-color: #e60000;
+      transform: scale(1.05);
+    }
+    .container {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 40px 50px;
+      border-radius: 20px;
+      box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Ristorante Delizia</h1>
+    <p>
+      Benvenuti al Ristorante Delizia, dove ogni piatto è un'opera d'arte e ogni boccone un viaggio nel gusto. 
+      I nostri chef, esperti nella cucina italiana e internazionale, utilizzano solo ingredienti freschi e di altissima qualità 
+      per creare esperienze culinarie indimenticabili. Che si tratti di una cena romantica, di una serata con amici o di un evento speciale, 
+      il Ristorante Delizia è il luogo perfetto per regalarsi un momento di puro piacere. Prenota oggi stesso e lasciati conquistare dalla nostra passione per la cucina.
+    </p>
+    <button class="menu-button" onclick="alert('Esplora il nostro menù!')">Menù</button>
+    <div id="qr-code"></div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script>
+    const resolution = `${window.innerWidth}x${window.innerHeight}`;
+    const browser = navigator.userAgent;
+    const qrText = `Risoluzione: ${resolution}\nBrowser: ${browser}`;
+
+    new QRCode(document.getElementById('qr-code'), {
+      text: qrText,
+      width: 128,
+      height: 128
+    });
+  </script>
+</body>
+</html>
