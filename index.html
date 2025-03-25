@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pagina di Benvenuto</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      color: white;
+      text-align: center;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+    }
+    #qr-code {
+      margin-top: 20px;
+    }
+    .menu-button {
+      background-color: #ff6b6b;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin-top: 20px;
+    }
+    .menu-button:hover {
+      background-color: #ff4757;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <h1>Benvenuto!</h1>
+    <p>Questa è la nostra incredibile pagina di benvenuto con un tema accattivante e uno sfondo gradiente.</p>
+    <button class="menu-button" onclick="alert('Menù cliccato!')">Menù</button>
+    <div id="qr-code"></div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script>
+    const resolution = `${window.innerWidth}x${window.innerHeight}`;
+    const browser = navigator.userAgent;
+    const qrText = `Risoluzione: ${resolution}\nBrowser: ${browser}`;
+
+    new QRCode(document.getElementById('qr-code'), {
+      text: qrText,
+      width: 128,
+      height: 128
+    });
+  </script>
+</body>
+</html>
